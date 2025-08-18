@@ -1,15 +1,53 @@
-import React, { use, useState } from 'react'
+import React, { use, useState,useEffect } from 'react'
 import { FaChevronLeft, FaChevronRight, FaChevronDown ,FaUser, FaGraduationCap, FaCode, FaBriefcase, FaImage, FaTrophy, FaNewspaper, FaEnvelope ,FaLaptopCode} from 'react-icons/fa'
 import { FaSun, FaWandMagicSparkles } from "react-icons/fa6";
+import gsap from 'gsap'
 
-function Sidebar({ darkMode, setDarkMode }) {
+function Sidebar({ darkMode, setDarkMode, cursorEnabled, setCursorEnabled }) {
   const [collapsed, setCollapsed] = useState(false)
   const [activeSection , setActiveSection]=useState('#about')
   const handleActiveSection = (sectionId) => {
     setActiveSection(sectionId);
   };
+  useEffect(() => {
+    // Récupère tous les <a>
+    const links = document.querySelectorAll("a");
+
+    // Fonction quand on entre sur un lien
+    const handleEnter = () => {
+      gsap.to("#cursor", {
+        scale: 2,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    };
+
+    // Fonction quand on sort du lien
+    const handleLeave = () => {
+      gsap.to("#cursor", {
+        scale: 1,
+        duration: 0.5,
+        ease: "power3.out",
+      });
+    };
+
+    // Ajout des events à chaque <a>
+    links.forEach((link) => {
+      link.addEventListener("mouseenter", handleEnter);
+      link.addEventListener("mouseleave", handleLeave);
+    
+    });
+
+    // Nettoyage
+    return () => {
+      links.forEach((link) => {
+        link.removeEventListener("mouseenter", handleEnter);
+        link.removeEventListener("mouseleave", handleLeave);
+      });
+    };
+  }, []);
   return (
-    <aside className={`m-3  bg-green-50 dark:bg-gray-900 p-4 transition-all duration-300 flex flex-col rounded-xl relative ${collapsed ? 'w-40' : 'w-80'}`}>
+    <aside className={`m-3  bg-[#CAECD5] dark:bg-[#141414]/90 p-4 transition-all duration-300 flex flex-col rounded-xl relative ${collapsed ? 'w-40' : 'w-80'}`}>
      <div className=" w-full max-w-sm mx-auto text-center ">
       
       {/* Image */}
@@ -44,6 +82,8 @@ function Sidebar({ darkMode, setDarkMode }) {
         {/* Toggle Button */}
         <div className={`flex justify-center border w-12 h-12 ml-auto absolute top-28 -right-7 bg-green-100 border border-white rounded-full ${collapsed ? 'h-9 w-9 -right-5':''} `}>
           <button
+           onMouseEnter={()=>{gsap.to("#cursor",{scale:2.5 ,duration:0.3})}}
+           onMouseLeave={()=>{gsap.to("#cursor",{scale:1 ,duration:0.3})}}
             onClick={() => setCollapsed(!collapsed)}
             className="text-green-800 hover:text-green-600"
           >
@@ -157,7 +197,9 @@ function Sidebar({ darkMode, setDarkMode }) {
       </button>
 
       {/* Outil magique */}
-      <button className="text-gray-500 hover:text-purple-600 hover:scale-150 transition-all">
+      <button 
+      onClick={() => setCursorEnabled(!cursorEnabled)}
+      className="text-gray-500 hover:text-purple-600 hover:scale-150 transition-all">
         <FaWandMagicSparkles className="text-xl" />
       </button>
 

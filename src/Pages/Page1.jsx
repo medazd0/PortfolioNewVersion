@@ -1,10 +1,13 @@
-import { useState,React ,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Sidebar from '../Sidebar/Sidebar'
 import Points from '../Ui/Points'
 import Main_page1 from '../components/Main_page1'
+import Cursor from '../components/Cursor'
 
 function Page1() {
   const [darkMode, setDarkMode] = useState(false);
+  const [cursorEnabled, setCursorEnabled] = useState(true); // état du curseur
+
   useEffect(() => {
     const root = window.document.documentElement;
     if (darkMode) {
@@ -15,13 +18,20 @@ function Page1() {
   }, [darkMode]);
 
   return (
-    <div className='flex min-h-screen  h-screen overflow-hidden'>
-        <Sidebar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Points />
+    <div className='flex min-h-screen h-screen overflow-hidden'>
+      {/* on ne rend Cursor que si enabled = true */}
+      {cursorEnabled && <Cursor />}
+      
+      {/* On passe aussi setCursorEnabled à Sidebar */}
+      <Sidebar 
+        darkMode={darkMode} 
+        setDarkMode={setDarkMode} 
+        cursorEnabled={cursorEnabled} 
+        setCursorEnabled={setCursorEnabled}
+      />
+
+      <Points />
       <Main_page1 />
-
-
-
     </div>
   )
 }
