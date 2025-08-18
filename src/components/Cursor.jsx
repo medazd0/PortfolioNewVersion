@@ -24,7 +24,7 @@ function Cursor() {
   return (
     <div
       id="cursor"
-      className="absolute z-10 top-0 left-0 w-[30px] h-[30px] bg-green-400/20 dark:bg-white rounded-full pointer-events-none dark:mix-blend-difference"
+      className="absolute z-10 top-0 left-0 w-[30px] h-[30px] bg-gray-400/10 dark:bg-white rounded-full pointer-events-none dark:mix-blend-difference"
     ></div>
   );
 }
