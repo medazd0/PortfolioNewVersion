@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react'
-import Sidebar from '../Sidebar/Sidebar'
+import Sidebar from '../Sidebar/Sidebar.jsx'
 import Points from '../Ui/Points'
 import Main_page1 from '../components/Main_page1'
+import EduSec from '../components/mainPages/EduSec'
+import SkillsSec from '../components/mainPages/SkillsSec'
+import ExpSec from '../components/mainPages/ExpSec'
 import Cursor from '../components/Cursor'
 
 function Page1() {
   const [darkMode, setDarkMode] = useState(false);
   const [cursorEnabled, setCursorEnabled] = useState(true); // état du curseur
+
+  
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -23,15 +28,16 @@ function Page1() {
       {cursorEnabled && <Cursor />}
       
       {/* On passe aussi setCursorEnabled à Sidebar */}
-      <Sidebar 
-        darkMode={darkMode} 
-        setDarkMode={setDarkMode} 
-        cursorEnabled={cursorEnabled} 
+      <Sidebar
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        cursorEnabled={cursorEnabled}
         setCursorEnabled={setCursorEnabled}
+       
       />
 
       <Points />
-      <Main_page1 />
+     
     </div>
   )
 }
