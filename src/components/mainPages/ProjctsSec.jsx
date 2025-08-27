@@ -53,7 +53,7 @@ function ProjectsSec() {
   return (
     <main
       className="flex-1 bg-[#CAECD5] dark:bg-[#141414] text-black dark:text-white 
-      p-6 m-10 rounded-tr-2xl rounded-2xl
+      p-10 m-10 rounded-tr-2xl rounded-2xl
       max-h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-green-600 
       scrollbar-track-gray-300 dark:scrollbar-thumb-[#95F187] 
       dark:scrollbar-track-gray-700 scroll-smooth"
@@ -70,7 +70,7 @@ function ProjectsSec() {
         
 
         {/* GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 mb-5">
           {projects.map((project, index) => (
             <div
               key={index}

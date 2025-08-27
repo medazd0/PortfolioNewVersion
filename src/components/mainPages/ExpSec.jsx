@@ -1,19 +1,21 @@
 import React from 'react'
 import { FaCubes  } from "react-icons/fa";
+import admdi from "../../images/Admdi.jpeg"
+import ade from "../../images/ADE.jpeg"
 import gsap from 'gsap'
 function ExpSec() {
   const experiences = [
     {
       title: "ADMDI | Internship",
       date: "Feb 2025 - May 2025",
-      icon: "/images/Admdi.jpeg", // mets un logo si tu veux
+      icon: admdi, // mets un logo si tu veux
       description:
         "Development and deployment of solutions including a Room Management System, a Jewelry Buying Platform, and a Biometric Student Attendance Tracking App using ZKTeco 9500.",
     },
     {
       title: "Head of Internal & External Relations | ADE",
       date: "Sep 2024 - Sep 2025",
-      icon: "/images/ADE.jpeg", // logo ADE si dispo
+      icon: ade, // logo ADE si dispo
       description:
         "Managed partnerships and secured sponsorships for ENSA Agadir Student Association (ADE).",
     },

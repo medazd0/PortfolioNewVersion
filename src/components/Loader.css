@@ -1,0 +1,156 @@
+.pacman {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  position: relative;
+  clip-path: polygon(100% 75%, 50% 50%, 100% 25%, 100% 0, 0 0, 0 100%, 100% 100%);
+  animation: chomp 0.5s infinite alternate;
+}
+
+@keyframes chomp {
+  0% {
+    clip-path: polygon(100% 75%, 50% 50%, 100% 25%, 100% 0, 0 0, 0 100%, 100% 100%);
+  }
+  100% {
+    clip-path: polygon(100% 65%, 50% 50%, 100% 35%, 100% 0, 0 0, 0 100%, 100% 100%);
+  }
+}
+
+.dots {
+  display: flex;
+  gap: 12px;
+  margin-left: 80px;
+  margin-top: -45px;
+}
+
+.dots span {
+  width: 15px;
+  height: 15px;
+  background: #22c55e; /* vert Tailwind */
+  border-radius: 50%;
+  animation: move 1.2s infinite;
+}
+
+.dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+}
+/* --- Pacman Loader --- */
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #000; /* fond noir */
+}
+
+/* Pacman */
+.pacman {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.pacman .mouth {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  clip-path: polygon(100% 25%, 100% 75%, 50% 50%);
+  animation: chew 0.5s infinite;
+}
+
+.pacman .circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  z-index: -1;
+}
+
+@keyframes chew {
+  0%, 100% {
+    clip-path: polygon(100% 25%, 100% 75%, 50% 50%);
+  }
+  50% {
+    clip-path: polygon(100% 0%, 100% 100%, 50% 50%);
+  }
+}
+
+/* Dots */
+.dots {
+  position: absolute;
+  top: 50%;              /* se place au milieu du Pacman */            /* juste à droite du Pacman */
+  transform: translateY(-50%); /* centre verticalement */
+  display: flex;
+  gap: 20px;             /* espace entre les points */
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  background: #22c55e; /* vert */
+  border-radius: 50%;
+  position: absolute;
+  left: 70px; /* démarre à droite de Pacman */
+  animation: dot-move 1.5s linear infinite;
+}
+
+.dot.delay-0 {
+  animation-delay: 0s;
+}
+
+.dot.delay-200 {
+  animation-delay: 0.3s;
+}
+
+.dot.delay-400 {
+  animation-delay: 0.6s;
+}
+
+@keyframes dot-move {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-80px); /* rentre dans Pacman */
+    opacity: 0; /* disparaît */
+  }
+}
+
+/* Text */
+.text {
+  margin-top: 40px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.text span {
+  color: #22c55e;
+}

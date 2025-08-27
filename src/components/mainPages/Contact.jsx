@@ -33,7 +33,7 @@ function Contact() {
   ];
   return (
     <main className="flex-1 bg-[#CAECD5] dark:bg-[#141414] text-black dark:text-white 
-    p-6 m-10 rounded-tr-2xl rounded-2xl
+    p-10 m-10 rounded-tr-2xl rounded-2xl
     max-h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-green-600 scrollbar-track-gray-300 dark:scrollbar-thumb-[#95F187] dark:scrollbar-track-gray-700 scroll-smooth scrollbar-hover:">
      
      <section id="home" className="flex flex-col items-center">
@@ -118,7 +118,7 @@ function Contact() {
       <span className="font-medium text-2xl   font-orbitron dark:text-white">prefer....</span>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
       {contacts.map((contact, index) => (
         <div
           key={index}

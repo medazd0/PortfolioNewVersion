@@ -4,6 +4,10 @@
 
 html, body {
   overflow: hidden; /* supprime scrollbar verticale et horizontale */
+    width: 1280px;
+    height: 720px;
+ 
+  
 }
 
 /* Scrollbar personnalisée UNIQUEMENT dans <main> */
@@ -25,3 +29,5 @@ main::-webkit-scrollbar-thumb {
 main::-webkit-scrollbar-button {
   display: none; /* cache les flèches ↑ ↓ */
 }
+
+

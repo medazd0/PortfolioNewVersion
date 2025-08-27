@@ -26,8 +26,8 @@ function Main_page1() {
     },
   ];
   return (
-<main className="flex-1 bg-[#CAECD5] dark:bg-[#141414] text-black dark:text-white 
-                 p-6 m-10 rounded-2xl rounded-br-2xl
+<main className="flex-1 bg-[#CAECD5] dark:bg-[#141414] text-black dark:text-white mb-
+                 p-10 m-10 rounded-2xl rounded-br-2xl
                  max-h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-green-600 scrollbar-track-gray-300 dark:scrollbar-thumb-[#95F187] dark:scrollbar-track-gray-700 scroll-smooth scrollbar-hover:">
 
 
@@ -117,7 +117,7 @@ function Main_page1() {
 
   </section>
 
-<section>
+<section className='mb-5'>
 <div className="items-start border-l-4 border-green-700  tracking-wider flex gap-x-4 pl-4 mt-5">
       <span className="font-medium text-2xl  font-orbitron text-green-700 dark:text-[#95F187]  ">Personal </span>
       <span className="font-medium text-2xl   font-orbitron dark:text-white">interests</span>
